@@ -16,23 +16,17 @@ namespace formulaire
 
     {
 
-        static string chaine = @"Data Source=DESKTOP-7MJDDPC\MSSQLSERVER03;Initial Catalog=Etudiant;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        SqlConnection chaine =new SqlConnection (@"Data Source=DESKTOP-7MJDDPC\MSSQLSERVER03;Initial Catalog=Etudiant;Integrated Security=True");
         //"Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\App_Data\VotreBD.mdf;Integrated Security=True;User Instance=True"
         //"Server=.\SQLEXPRESS; DataBase=VotreBD;USER ID=sa; PASSWORD="
-        static SqlConnection cnx = new SqlConnection(chaine);
-        static SqlCommand cmd = new SqlCommand();
-        static SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+       
+        
         public Nom()
         {
             InitializeComponent();
         }
-        public int idvalide()
-        {
-            int cpt;
-            cmd.CommandText = "select id from Personne where ='" + identifiant.Text + "'";
-            cpt=(int)cmd.ExecuteScalar();
-            return cpt;
-        }
+        int value;
+        
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
@@ -51,6 +45,10 @@ namespace formulaire
 
         private void button3_Click(object sender, EventArgs e)
         {
+            value = 1;
+            identifiant.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
             Enregister.Enabled = true;
             Modifer.Enabled = false;
             Supprimer.Enabled = false;
@@ -63,26 +61,40 @@ namespace formulaire
 
         private void button2_Click(object sender, EventArgs e)
         {
-            SqlConnection cnx = new SqlConnection(chaine);
-            cnx.Open();
-            if (idvalide() == 0 && (identifiant.Text == "" || textBox2.Text == "" || textBox3.Text == ""))
+            if(value == 1)
             {
+                
+            
+                try
+                {
+                    if (identifiant.Text != "" || textBox2.Text != "" || textBox3.Text != "")
+                    {
+                        
+                        chaine.Open();
+                        SqlCommand cmd = new SqlCommand("insert into Personne(id,Nom,Prenom) values" +"('"+identifiant.Text+"','"+textBox3.Text+ "','"+textBox2.Text+"')",chaine) ;
+                         
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("bien Ajouter ");
+                        chaine.Close();
+                        identifiant.Clear();
+                        textBox2.Clear();
+                        textBox3.Clear();
 
-
-                cmd.CommandText = "insert into  values('" + identifiant.Text + "','" + textBox3.Text + "','" + textBox2.Text + "') ";
-                cmd.ExecuteNonQuery();
-                identifiant.Clear();
-                textBox2.Clear();
-                textBox3.Clear();
-
+                    }
+                    else
+                    {
+                        MessageBox.Show("remplire tout les champs");
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-            else 
-            {
-                MessageBox.Show("cette personne existe deja");
-            }
-
-
         }
+
+
+    
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -101,10 +113,35 @@ namespace formulaire
 
         private void Modifer_Click(object sender, EventArgs e)
         {
+            try
+            {
+                
+                    chaine.Open();
+                    SqlCommand cmd = new SqlCommand;
 
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("bien Ajouter ");
+                    chaine.Close();
+                    identifiant.Clear();
+                    textBox2.Clear();
+                    textBox3.Clear();
+
+                
+                else
+                {
+                    MessageBox.Show("remplire tout les champs");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
+    }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+}
+
+private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
