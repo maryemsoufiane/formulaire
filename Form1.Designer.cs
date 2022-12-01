@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.prenom = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,20 +39,11 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.identifiant = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Afficher = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(204, 299);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(445, 37);
-            this.dataGridView1.TabIndex = 3;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label1
             // 
@@ -91,7 +81,7 @@
             // 
             this.Modifer.BackColor = System.Drawing.SystemColors.Highlight;
             this.Modifer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Modifer.Location = new System.Drawing.Point(407, 197);
+            this.Modifer.Location = new System.Drawing.Point(372, 197);
             this.Modifer.Name = "Modifer";
             this.Modifer.Size = new System.Drawing.Size(94, 48);
             this.Modifer.TabIndex = 7;
@@ -103,7 +93,7 @@
             // 
             this.Enregister.BackColor = System.Drawing.SystemColors.Highlight;
             this.Enregister.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Enregister.Location = new System.Drawing.Point(269, 197);
+            this.Enregister.Location = new System.Drawing.Point(216, 197);
             this.Enregister.Name = "Enregister";
             this.Enregister.Size = new System.Drawing.Size(132, 48);
             this.Enregister.TabIndex = 8;
@@ -115,7 +105,7 @@
             // 
             this.Ajouter.BackColor = System.Drawing.SystemColors.Highlight;
             this.Ajouter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ajouter.Location = new System.Drawing.Point(165, 195);
+            this.Ajouter.Location = new System.Drawing.Point(112, 197);
             this.Ajouter.Name = "Ajouter";
             this.Ajouter.Size = new System.Drawing.Size(98, 48);
             this.Ajouter.TabIndex = 9;
@@ -127,7 +117,7 @@
             // 
             this.Supprimer.BackColor = System.Drawing.SystemColors.Highlight;
             this.Supprimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Supprimer.Location = new System.Drawing.Point(507, 197);
+            this.Supprimer.Location = new System.Drawing.Point(481, 195);
             this.Supprimer.Name = "Supprimer";
             this.Supprimer.Size = new System.Drawing.Size(110, 48);
             this.Supprimer.TabIndex = 10;
@@ -139,7 +129,7 @@
             // 
             this.Anuller.BackColor = System.Drawing.SystemColors.Highlight;
             this.Anuller.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Anuller.Location = new System.Drawing.Point(630, 195);
+            this.Anuller.Location = new System.Drawing.Point(607, 195);
             this.Anuller.Name = "Anuller";
             this.Anuller.Size = new System.Drawing.Size(88, 48);
             this.Anuller.TabIndex = 11;
@@ -171,11 +161,42 @@
             this.textBox2.TabIndex = 1;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(112, 309);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(312, 28);
+            this.comboBox1.TabIndex = 12;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(521, 278);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 62;
+            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.TabIndex = 13;
+            // 
+            // Afficher
+            // 
+            this.Afficher.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.Afficher.Location = new System.Drawing.Point(712, 197);
+            this.Afficher.Name = "Afficher";
+            this.Afficher.Size = new System.Drawing.Size(75, 46);
+            this.Afficher.TabIndex = 14;
+            this.Afficher.Text = "Afficher";
+            this.Afficher.UseVisualStyleBackColor = false;
+            this.Afficher.Click += new System.EventHandler(this.Afficher_Click);
+            // 
             // Nom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 450);
+            this.Controls.Add(this.Afficher);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.Anuller);
             this.Controls.Add(this.Supprimer);
             this.Controls.Add(this.Ajouter);
@@ -184,7 +205,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.prenom);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.identifiant);
@@ -197,7 +217,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label prenom;
         private System.Windows.Forms.Label label3;
@@ -209,6 +228,9 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox identifiant;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button Afficher;
     }
 }
 

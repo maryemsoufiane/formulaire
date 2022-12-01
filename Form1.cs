@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
+
 namespace formulaire
 {
     public partial class Nom : Form
@@ -103,47 +104,53 @@ namespace formulaire
 
         private void Supprimer_Click(object sender, EventArgs e)
         {
+            chaine.Open();
 
+            SqlCommand cmd = new SqlCommand ( "delete from Personne where id = " + comboBox1.SelectedValue.ToString() + ";";
+            cmd.ExecuteNonQuery();
+            chaine.Close();
         }
 
         private void Anuller_Click(object sender, EventArgs e)
         {
             Anuller.Enabled = true;
+
+            this.Text = "Initial";
+
+ 
+
+            
+            Modifer.Enabled = false;
+            Supprimer.Enabled = false;
+            Enregister.Enabled = false;
+           
         }
 
         private void Modifer_Click(object sender, EventArgs e)
         {
-            try
-            {
-                
-                    chaine.Open();
-                    SqlCommand cmd = new SqlCommand;
+            chaine.Open();
 
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("bien Ajouter ");
-                    chaine.Close();
-                    identifiant.Clear();
-                    textBox2.Clear();
-                    textBox3.Clear();
+            SqlCommand cmd = new SqlCommand("update Persons set Nom = '" + textBox3.Text + "' where id = " + comboBox1.SelectedValue.ToString() + ";" );
+            cmd.ExecuteNonQuery();
+            chaine.Close();
 
-                
-                else
-                {
-                    MessageBox.Show("remplire tout les champs");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
-    }
-
-}
 
 private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void Afficher_Click(object sender, EventArgs e)
+        {
+            chaine.Open();
+           chaine.Connection = chaine;
+            chaine.CommandText = "select * from question_direct";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            dataGridView1.DataSource = dt;
+            cnx.Close();
         }
     }
 }
