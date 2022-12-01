@@ -144,13 +144,13 @@ private void dataGridView1_CellContentClick(object sender, DataGridViewCellEvent
         private void Afficher_Click(object sender, EventArgs e)
         {
             chaine.Open();
-           chaine.Connection = chaine;
-            chaine.CommandText = "select * from question_direct";
+
+            SqlCommand cmd = new SqlCommand( "select * from question_direct");
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             dataGridView1.DataSource = dt;
-            cnx.Close();
+            chaine.Close();
         }
     }
 }
